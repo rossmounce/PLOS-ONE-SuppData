@@ -1,0 +1,18 @@
+find . -name "*.nxml"  | xargs grep '\.s[0-9][0-9][0-9]\.' | tr '"' '\n' | grep '\.s[0-9][0-9][0-9]\.' > ../../plosonesupp.txt
+
+find . -name "*.nxml"  | xargs grep '\.s[0-9][0-9][0-9]\.' | tr '"' '\n' | grep '\.s[0-9][0-9][0-9]\.' > ../../plosonesupp.txt
+
+
+PLoS_One_2016
+
+
+find . -name "*.nxml"  | xargs grep '\.s[0-9][0-9][0-9]\.' | tr '"' '\n' | grep '\.s[0-9][0-9][0-9]\.' > ../../plosonesupp.txt
+
+find . -name "*_2006_*"  | xargs grep '\.s[0-9][0-9][0-9]\.' | tr '"' '\n' | grep '\.s[0-9][0-9][0-9]\.' > ../../plosonesupp2006.txt
+
+find . -name "*_2007_*"  | xargs grep '\.s[0-9][0-9][0-9]\.' | tr '"' '\n' | grep '\.s[0-9][0-9][0-9]\.' > ../../plosonesupp2007.txt ; find . -name "*_2008_*"  | xargs grep '\.s[0-9][0-9][0-9]\.' | tr '"' '\n' | grep '\.s[0-9][0-9][0-9]\.' > ../../plosonesupp2008.txt ; find . -name "*_2009_*"  | xargs grep '\.s[0-9][0-9][0-9]\.' | tr '"' '\n' | grep '\.s[0-9][0-9][0-9]\.' > ../../plosonesupp2009.txt ; find . -name "*_2010_*"  | xargs grep '\.s[0-9][0-9][0-9]\.' | tr '"' '\n' | grep '\.s[0-9][0-9][0-9]\.' > ../../plosonesupp2010.txt ; find . -name "*_2011_*"  | xargs grep '\.s[0-9][0-9][0-9]\.' | tr '"' '\n' | grep '\.s[0-9][0-9][0-9]\.' > ../../plosonesupp2011.txt ; find . -name "*_2012_*"  | xargs grep '\.s[0-9][0-9][0-9]\.' | tr '"' '\n' | grep '\.s[0-9][0-9][0-9]\.' > ../../plosonesupp2012.txt ; find . -name "*_2013_*"  | xargs grep '\.s[0-9][0-9][0-9]\.' | tr '"' '\n' | grep '\.s[0-9][0-9][0-9]\.' > ../../plosonesupp2013.txt ; find . -name "*_2014_*"  | xargs grep '\.s[0-9][0-9][0-9]\.' | tr '"' '\n' | grep '\.s[0-9][0-9][0-9]\.' > ../../plosonesupp2014.txt ; find . -name "*_2015_*"  | xargs grep '\.s[0-9][0-9][0-9]\.' | tr '"' '\n' | grep '\.s[0-9][0-9][0-9]\.' > ../../plosonesupp2015.txt ;
+
+cat plosonesupp2006.txt | paste -d' ' <( cat plosonesupp2006.txt | sed 's/\.[^.]*$//' ) - > 2006.txt
+sed -i 's/ pone/'\'' \-O pone/g' 2006.txt
+sed -i 's/^/wget '\''http:\/\/journals\.plos\.org\/plosone\/article\/asset\?unique\&id\=info:doi\/10\.1371\/journal\./g' 2006.txt
+sed -i 's/$/ ; /g' 2006.txt
